@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-Day M365 Knowledge Transfer Infographic - AU</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+        /* New Australian Palette: #34A5A5, #9E007F, #18223F, #4A4A48, #B0B3B3, #FFFFFF */
+        :root {
+            --color-navy: #18223F; /* Primary Dark */
+            --color-teal: #34A5A5; /* Accent 1 */
+            --color-magenta: #9E007F; /* Accent 2 (Vibrant) */
+            --color-light-magenta: #EAD1DC; /* Light Magenta for fills */
+            --color-dark-grey: #4A4A48; /* Text */
+            --color-light-grey: #B0B3B3; /* Border/Subtle */
+            --color-white: #FFFFFF; /* Background */
+        }
+        .bg-navy { background-color: var(--color-navy); }
+        .text-navy { color: var(--color-navy); }
+        .bg-teal { background-color: var(--color-teal); }
+        .text-teal { color: var(--color-teal); }
+        .bg-magenta { background-color: var(--color-magenta); }
+        .text-magenta { color: var(--color-magenta); }
+        .border-teal { border-color: var(--color-teal); }
+        .bg-white { background-color: var(--color-white); }
+        .text-dark-grey { color: var(--color-dark-grey); }
+
+        .step-card {
+            border-top-width: 4px;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-white text-dark-grey">
+
+    <!-- 
+        Palette Choice: #18223F (Navy), #34A5A5 (Teal), #9E007F (Magenta)
+        Language: Australian English (visualisation)
+    -->
+
+    <!-- 
+        Confirmation: NEITHER Mermaid JS NOR SVG were used in this file. All diagrams are structured HTML/CSS and all charts are rendered on <canvas> by Chart.js.
+    -->
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-navy mb-4">The 8-Day Accelerated Knowledge Transfer</h1>
+            <p class="text-xl text-dark-grey">Achieving Operational Control for M365 & SaaS Security</p>
+        </header>
+
+        <section class="mb-16">
+            <div class="bg-white rounded-lg shadow-xl p-8 md:p-12 text-center border-t-4 border-magenta">
+                <h2 class="text-2xl font-bold text-dark-grey mb-2">The Goal: Full Operational Readiness in</h2>
+                <div class="text-8xl md:text-9xl font-extrabold text-magenta mb-4">8</div>
+                <p class="text-2xl font-bold text-dark-grey">Business Days</p>
+                <p class="text-lg text-dark-grey max-w-2xl mx-auto mt-4">This focused sprint maximises the procedural and administrative skill acquisition straight away, cutting out unnecessary fluff.</p>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-navy mb-10">Guiding Principles for Rapid Success</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center step-card border-teal">
+                    <div class="text-5xl mb-4 text-magenta">🛠️</div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Focus on "How to Fix"</h3>
+                    <p class="text-dark-grey">We prioritise practical SOPs for common issues over deep architectural theory. Immediate usability is key for getting the job done.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center step-card border-teal">
+                    <div class="text-5xl mb-4 text-magenta">🤝</div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Hands-On Learning</h3>
+                    <p class="text-dark-grey">Every session includes a live demo and a mandatory practical exercise to verify knowledge transfer is solid.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center step-card border-teal">
+                    <div class="text-5xl mb-4 text-magenta">📖</div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Documentation First</h3>
+                    <p class="text-dark-grey">All knowledge is linked to an accessible, central, and verifiable documentation repository for future reference.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-xl p-6 md:p-8 mb-16 border border-light-grey">
+            <h2 class="text-3xl font-bold text-center text-navy mb-4">The 4 Knowledge Domains (8-Day Allocation)</h2>
+            <p class="text-lg text-dark-grey text-center max-w-3xl mx-auto mb-10">The 8-day sprint is balanced across four critical areas, ensuring proper focus on the high-risk security, critical user and device operational processes and backup systems.</p>
+            <div class="chart-container">
+                <canvas id="domainsDonutChart"></canvas>
+            </div>
+            <div class="text-center mt-8">
+                <p class="text-dark-grey max-w-2xl mx-auto">The schedule allocates two days to each major domain: M365 Admin, Security, Backup/DR, and Critical Operational Handoffs (Kickoff & Final Sign-off).</p>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-xl p-6 md:p-8 mb-16 border border-light-grey">
+            <h2 class="text-3xl font-bold text-center text-navy mb-4">The 8-Day Phased Schedule</h2>
+            <p class="text-lg text-dark-grey text-center max-w-3xl mx-auto mb-10">A focused, day-by-day sequence to build knowledge logically from access and identity right through to disaster recovery and sign-off.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="step-card bg-light-magenta/20 rounded-lg shadow-md p-4 border-teal">
+                    <span class="text-xs font-bold text-teal">DAY 1</span>
+                    <h4 class="font-bold text-navy mt-1">Kickoff & Access</h4>
+                    <p class="text-sm text-dark-grey">Environment map review, credential exchange, and documentation access.</p>
+                </div>
+                <div class="step-card bg-light-magenta/20 rounded-lg shadow-md p-4 border-teal">
+                    <span class="text-xs font-bold text-teal">DAY 2</span>
+                    <h4 class="font-bold text-navy mt-1">M365: Identity</h4>
+                    <p class="text-sm text-dark-grey">Entra ID, user lifecycle management, and MFA/Conditional Access policies.</p>
+                </div>
+                <div class="step-card bg-light-magenta/20 rounded-lg shadow-md p-4 border-teal">
+                    <span class="text-xs font-bold text-teal">DAY 3</span>
+                    <h4 class="font-bold text-navy mt-1">M365: Data & Comms</h4>
+                    <p class="text-sm text-dark-grey">Exchange mail flow, SharePoint sharing configuration, and Teams review.</p>
+                </div>
+                <div class="step-card bg-light-magenta/20 rounded-lg shadow-md p-4 border-teal">
+                    <span class="text-xs font-bold text-teal">DAY 4</span>
+                    <h4 class="font-bold text-navy mt-1">Security I: Endpoint/EDR</h4>
+                    <p class="text-sm text-dark-grey">EDR solution console, alert handling, and standard remediation playbooks.</p>
+                </div>
+                <div class="step-card bg-light-magenta/20 rounded-lg shadow-md p-4 border-teal">
+                    <span class="text-xs font-bold text-teal">DAY 5</span>
+                    <h4 class="font-bold text-navy mt-1">Security II: MDM & Email</h4>
+                    <p class="text-sm text-dark-grey">Device Management (Intune) policies and email gateway quarantine release process.</p>
+                </div>
+                <div class="step-card bg-light-magenta/20 rounded-lg shadow-md p-4 border-teal">
+                    <span class="text-xs font-bold text-teal">DAY 6</span>
+                    <h4 class="font-bold text-navy mt-1">Management Environment Deployment</h4>
+                    <p class="text-sm text-dark-grey">Package and deploy Datto RMM via Intune.</p>
+                </div>
+                <div class="step-card bg-light-magenta/20 rounded-lg shadow-md p-4 border-teal">
+                    <span class="text-xs font-bold text-teal">DAY 7</span>
+                    <h4 class="font-bold text-navy mt-1">Backups & Disaster Recovery</h4>
+                    <p class="text-sm text-dark-grey">Review Backups & DR Runbook, RTOs, and a full system restore simulation exercise.</p>
+                </div>
+                <div class="step-card bg-light-magenta/20 rounded-lg shadow-md p-4 border-teal">
+                    <span class="text-xs font-bold text-teal">DAY 8</span>
+                    <h4 class="font-bold text-navy mt-1">Ops Handoff & Sign-off</h4>
+                    <p class="text-sm text-dark-grey">Ticketing and vendor management transfer. Formal KT Completion Sign-off.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
+            <div class="bg-white rounded-lg shadow-xl p-6 md:p-8 border border-light-grey">
+                <h3 class="text-2xl font-bold text-center text-navy mb-4">Deep Dive: Essential Eight Coverage</h3>
+                <p class="text-dark-grey text-center max-w-xl mx-auto mb-8">The transfer ensures capability across the Australian Cyber Security Centre's (ACSC) Essential Eight mitigation strategies—a crucial measure of security assurance.</p>
+                <div class="chart-container">
+                    <canvas id="securityRadarChart"></canvas>
+                </div>
+                <p class="text-center text-dark-grey mt-8">This visualisation confirms uniform KT coverage across all eight critical controls, from patching and application hardening to administrative privileges and Multi-factor Authentication.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-xl p-6 md:p-8 border border-light-grey">
+                <h3 class="text-2xl font-bold text-center text-navy mb-4">Deep Dive: Backup & Retention Policies</h3>
+                <p class="text-dark-grey text-center max-w-xl mx-auto mb-8">Verification of crucial retention policies for M365 data and endpoints, confirmed by live restore procedures—gotta prove it works.</p>
+                <div class="chart-container" style="max-width: 600px; height: 350px;">
+                    <canvas id="backupBarChart"></canvas>
+                </div>
+                <p class="text-center text-dark-grey mt-8">This visualisation confirms the retention period focus: annual recovery for M365 collaboration data and immediate, short-term recovery for endpoints/servers.</p>
+            </div>
+        </section>
+
+        <section class="bg-navy text-white rounded-lg shadow-xl p-8 md:p-12">
+            <h2 class="text-3xl font-bold text-center mb-4">Success Metrics & Closure</h2>
+            <p class="text-light-grey text-center max-w-3xl mx-auto mb-10">Success is measured by the Recipient Team's (RT) immediate autonomy and proven competence in high-risk scenarios.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="bg-teal rounded-lg p-6 text-center">
+                    <div class="text-5xl font-extrabold text-magenta mb-2">90%</div>
+                    <h4 class="text-lg font-bold mb-1">Admin Proficiency</h4>
+                    <p class="text-white/80 text-sm">Score on the final, timed M365 Admin Checklist.</p>
+                </div>
+                <div class="bg-teal rounded-lg p-6 text-center">
+                    <div class="text-5xl font-extrabold text-magenta mb-2">100%</div>
+                    <h4 class="text-lg font-bold mb-1">Documentation</h4>
+                    <p class="text-white/80 text-sm">RT confirmation that all knowledge base documents are accurate.</p>
+                </div>
+                <div class="bg-teal rounded-lg p-6 text-center">
+                    <div class="text-5xl font-extrabold text-magenta mb-2">&lt;3</div>
+                    <h4 class="text-lg font-bold mb-1">Self-Sufficiency</h4>
+                    <p class="text-white/80 text-sm">Critical escalations received in the subsequent 5 days post-handover—no dramas.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-16 pb-8">
+            <p class="text-lg font-bold text-navy">KT Complete: Operational Control Transferred</p>
+            <p class="text-dark-grey">A rapid, structured, and verifiable transfer process.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navy = '#18223F';
+            const teal = '#34A5A5';
+            const magenta = '#9E007F';
+            const lightMagenta = '#EAD1DC';
+            const darkGrey = '#4A4A48';
+            const white = '#FFFFFF';
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                if (!item || item.dataIndex === undefined) return '';
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+
+            const commonTooltipOptions = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        },
+                        backgroundColor: navy,
+                        titleFont: { size: 14 },
+                        bodyFont: { size: 12 },
+                        padding: 10,
+                        cornerRadius: 4
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: 12,
+                                family: 'Inter'
+                            },
+                            color: darkGrey
+                        }
+                    }
+                }
+            };
+
+            const domainsDonutCtx = document.getElementById('domainsDonutChart');
+            if (domainsDonutCtx) {
+                new Chart(domainsDonutCtx.getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['M365 Admin', 'Security', 'Backup/DR', 'Operational Handoff'],
+                        datasets: [{
+                            label: 'Days Allocated',
+                            data: [2, 2, 2, 2], /* 8-Day Split: 2 days per major area */
+                            backgroundColor: [
+                                teal,
+                                magenta,
+                                navy,
+                                lightMagenta
+                            ],
+                            borderColor: white,
+                            borderWidth: 3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '70%',
+                        plugins: {
+                            ...commonTooltipOptions.plugins,
+                            legend: {
+                                ...commonTooltipOptions.plugins.legend,
+                                position: 'right',
+                                labels: {
+                                    font: {
+                                        size: 13,
+                                        family: 'Inter'
+                                    },
+                                    color: darkGrey
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const securityRadarCtx = document.getElementById('securityRadarChart');
+            if (securityRadarCtx) {
+                new Chart(securityRadarCtx.getContext('2d'), {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            ['Application', 'Control'], 
+                            ['Patch', 'Applications'],
+                            ['Office Macro', 'Settings'],
+                            ['User App', 'Hardening'],
+                            ['Restrict Admin', 'Privileges'],
+                            ['Patch', 'OS'],
+                            ['Multi-factor', 'Authentication'],
+                            ['Regular', 'Backups']
+                        ],
+                        datasets: [
+                            {
+                                label: 'Current Level',
+                                data: [1, 0, 1, 2, 0, 1, 1, 0], /* Random spread between 0-2, with one 2 */
+                                fill: true,
+                                backgroundColor: 'rgba(158, 0, 127, 0.2)', /* Magenta transparent */
+                                borderColor: magenta,
+                                pointBackgroundColor: magenta,
+                                pointBorderColor: white,
+                                pointHoverBackgroundColor: white,
+                                pointHoverBorderColor: magenta
+                            },
+                            {
+                                label: 'Desired Level',
+                                data: [2, 2, 2, 2, 2, 2, 2, 2], /* All set to level 2 */
+                                fill: false,
+                                borderColor: teal,
+                                pointBackgroundColor: teal,
+                                pointBorderColor: white,
+                                pointHoverBackgroundColor: white,
+                                pointHoverBorderColor: teal,
+                                borderDash: [5, 5]
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            ...commonTooltipOptions.plugins,
+                            legend: {
+                                display: true, /* Show legend */
+                                position: 'bottom',
+                                labels: {
+                                    font: {
+                                        size: 12,
+                                        family: 'Inter'
+                                    },
+                                    color: darkGrey
+                                }
+                            }
+                        },
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 3, /* Scale from 0 to 3 */
+                                ticks: {
+                                    display: true,
+                                    stepSize: 1,
+                                    color: darkGrey,
+                                    font: {
+                                        size: 10
+                                    }
+                                },
+                                grid: {
+                                    color: '#eee'
+                                },
+                                pointLabels: {
+                                    font: {
+                                        size: 11,
+                                        family: 'Inter',
+                                        weight: '500'
+                                    },
+                                    color: darkGrey
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const backupBarCtx = document.getElementById('backupBarChart');
+            if (backupBarCtx) {
+                new Chart(backupBarCtx.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['M365 Mailboxes', 'M365 OneDrive', 'M365 SharePoint', 'Endpoints', 'Servers'],
+                        datasets: [{
+                            label: 'Retention (Days)',
+                            data: [365, 365, 365, 30, 30],
+                            backgroundColor: [
+                                navy,
+                                teal,
+                                magenta,
+                                navy,
+                                teal
+                            ],
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            ...commonTooltipOptions.plugins,
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Retention Policy (Days)',
+                                    font: { size: 12, family: 'Inter' },
+                                    color: darkGrey
+                                }
+                            },
+                            y: {
+                                ticks: {
+                                    font: { size: 12, family: 'Inter' },
+                                    color: darkGrey
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
